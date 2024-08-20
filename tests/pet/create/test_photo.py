@@ -1,25 +1,9 @@
+from dtos.pet import get_pet_dto
 from models.pet import Pet
 
 
 def test_valid_remote_photo():
-    payload = {
-        "id": 999,
-        "category": {
-            "id": 0,
-            "name": "string"
-        },
-        "name": "Pips",
-        "photoUrls": [
-            "https://i.pinimg.com/474x/47/56/1a/47561a958df86a9de9a1c441e63c9c12.jpg"
-        ],
-        "tags": [
-            {
-                "id": 0,
-                "name": "string"
-            }
-        ],
-        "status": "available"
-    }
+    payload = get_pet_dto(999, "Pips", "https://i.pinimg.com/474x/47/56/1a/47561a958df86a9de9a1c441e63c9c12.jpg")
 
     status, json = Pet.create(payload)
 
@@ -33,25 +17,7 @@ def test_invalid_photo():
     In fact, API does not validate URLs, so we test actual behavior.
     """
 
-    payload = {
-        "id": 999,
-        "category": {
-            "id": 0,
-            "name": "string"
-        },
-        "name": "Pips",
-        "photoUrls": [
-            "u2u2u2"
-        ],
-        "tags": [
-            {
-                "id": 0,
-                "name": "string"
-            }
-        ],
-        "status": "available"
-    }
-
+    payload = get_pet_dto(999, "Pips", "u2u2u2")
     status, json = Pet.create(payload)
 
     assert status == 200

@@ -1,25 +1,9 @@
+from dtos.pet import get_pet_dto
 from models.pet import Pet
 
 
 def test_empty_id():
-    payload = {
-        "id": "",
-        "category": {
-            "id": 0,
-            "name": "string"
-        },
-        "name": "",
-        "photoUrls": [
-            "string"
-        ],
-        "tags": [
-            {
-                "id": 0,
-                "name": "string"
-            }
-        ],
-        "status": ""
-    }
+    payload = get_pet_dto(0, "", "")
 
     pet = Pet()
     status, json = pet.create(payload)
@@ -28,23 +12,7 @@ def test_empty_id():
 
 
 def test_no_id():
-    payload = {
-        "category": {
-            "id": 0,
-            "name": "string"
-        },
-        "name": "kaka",
-        "photoUrls": [
-            "string"
-        ],
-        "tags": [
-            {
-                "id": 0,
-                "name": "string"
-            }
-        ],
-        "status": "available"
-    }
+    payload = get_pet_dto(0, "Pips", "string")
 
     pet = Pet()
     status, json = pet.create(payload)
