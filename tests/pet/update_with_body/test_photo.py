@@ -1,5 +1,4 @@
-from dtos.pet import get_pet_dto
-from fixtures.pet import pet
+from dtos import get_pet_dto
 
 
 def test_empty_photo(pet):

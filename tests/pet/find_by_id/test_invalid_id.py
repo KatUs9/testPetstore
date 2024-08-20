@@ -1,4 +1,4 @@
-from models.pet import Pet
+from models import Pet
 
 
 def test_not_found_id():

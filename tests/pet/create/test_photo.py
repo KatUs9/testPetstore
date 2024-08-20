@@ -1,5 +1,5 @@
-from dtos.pet import get_pet_dto
-from models.pet import Pet
+from dtos import get_pet_dto
+from models import Pet
 
 
 def test_valid_remote_photo():
@@ -17,11 +17,6 @@ def test_valid_remote_photo():
 
 
 def test_invalid_photo():
-    """Test whether API validates pet photo URL.
-
-    In fact, API does not validate URLs, so we test actual behavior.
-    """
-
     payload = get_pet_dto(999, "Pips", "u2u2u2")
     pet = Pet()
     status, json = pet.create(payload)

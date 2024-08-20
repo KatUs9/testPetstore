@@ -11,8 +11,9 @@ class User:
         response = requests.post(f"{base_url}/user", json=payload)
         json = response.json()
 
-        self.username = json["username"]
-        self.password = json["password"]
+        if response.status_code == 200:
+            self.username = payload["username"]
+            self.password = payload["password"]
 
         return response.status_code, json
 
@@ -34,4 +35,4 @@ class User:
 
     def delete(self):
         response = requests.delete(f"{base_url}/user/{self.username}")
-        return response.status_code, response.json()
+        return response.status_code

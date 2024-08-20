@@ -10,11 +10,12 @@ class Order:
         response = requests.post(f"{base_url}/store/order", json=payload)
         json = response.json()
 
-        self.id = json["id"]
+        if "id" in json:
+            self.id = json["id"]
 
         return response.status_code, json
 
-    def get_by_id(self):
+    def get(self):
         response = requests.get(f"{base_url}/store/order/{self.id}")
         return response.status_code, response.json()
 

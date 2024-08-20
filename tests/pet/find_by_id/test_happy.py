@@ -1,6 +1,3 @@
-from fixtures.pet import pet
-
-
 def test_happy(pet):
     status, json = pet.get()
 

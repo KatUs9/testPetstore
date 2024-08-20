@@ -1,5 +1,5 @@
-from dtos.pet import get_pet_dto
-from models.pet import Pet
+from dtos import get_pet_dto
+from models import Pet
 
 
 def test_happy_base():

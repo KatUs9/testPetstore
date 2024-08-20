@@ -5,12 +5,15 @@ from data import base_url
 
 class Pet:
     id = None
+    name = None
 
     def create(self, payload):
         response = requests.post(f"{base_url}/pet", json=payload)
         json = response.json()
 
-        self.id = json["id"]
+        if "id" in json and "name" in json:
+            self.id = json["id"]
+            self.name = json["name"]
 
         return response.status_code, json
 
