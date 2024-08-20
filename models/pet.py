@@ -28,4 +28,4 @@ class Pet:
 
     def delete(self):
         response = requests.delete(f"{base_url}/pet/{self.id}")
-        return response.status_code, response.json()
+        return response.status_code

@@ -6,7 +6,7 @@ def test_empty_id():
     payload = get_pet_dto(0, "", "")
 
     pet = Pet()
-    status, json = pet.create(payload)
+    status, _ = pet.create(payload)
 
     assert status == 200
 

@@ -17,7 +17,9 @@ class User:
         return response.status_code, json
 
     def login(self):
-        response = requests.post(f"{base_url}/user/login?username={self.username}&password={self.password}")
+        response = requests.post(
+            f"{base_url}/user/login?username={self.username}&password={self.password}"
+        )
 
         return response.status_code, response.json
 

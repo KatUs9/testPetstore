@@ -2,5 +2,5 @@ from fixtures.pet import pet
 
 
 def test_delete(pet):
-    status, json = pet.delete()
+    status, _ = pet.delete()
     assert status == 200
