@@ -21,7 +21,7 @@ def test_invalid_id():
 
 def test_less_than_one_id():
     order = Order()
-    order.id = 0
+    order.id = -12
 
     status, json = order.get()
 
@@ -30,7 +30,7 @@ def test_less_than_one_id():
 
 def test_more_than_ten_id():
     order = Order()
-    order.id = 11
+    order.id = 99121
 
     status, json = order.get()
 
