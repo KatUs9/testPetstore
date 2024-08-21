@@ -19,9 +19,9 @@ pip3 install pytest requests
 ## Запуск тестов
 
 ```bash
-python3 -m pytest tests
+python -m pytest tests
 ```
 
 ## Схема
 
-![Схема](./assets/schema.svg)
+![Схема](assets/schema.svg)
